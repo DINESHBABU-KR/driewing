@@ -55,7 +55,7 @@ const Navbar = () => {
             duration={200}
             onClick={closeMenu}
           >
-            <img src={logoBrand} alt="Adex Logo" className="logo-img" />
+            <img src={logoBrand} alt="Driewing Logo" className="logo-img" />
           </Link>
         </div>
 

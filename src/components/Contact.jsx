@@ -54,7 +54,7 @@ const Contact = () => {
                 <div className="contact-logo-wrapper">
                   <img
                     src={logoBrand}
-                    alt="Adex Logo"
+                    alt="Driewing Logo"
                     className="contact-form-logo"
                   />
                 </div>
@@ -113,8 +113,15 @@ const Contact = () => {
       <footer className="simple-footer">
         <div className="container footer-content">
           <div className="footer-logo">
-            <img src={logoBrand} alt="Adex" className="footer-simple-logo" />
-            <span>&copy; {new Date().getFullYear()}</span>
+            <img
+              src={logoBrand}
+              alt="Driewing"
+              className="footer-simple-logo"
+            />
+            <span>
+              &copy; {new Date().getFullYear()} Advanced Digital Excellence. All
+              rights reserved.
+            </span>
           </div>
           <div className="footer-links">
             <a href="#services">Services</a>
