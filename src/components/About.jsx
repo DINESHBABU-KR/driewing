@@ -17,25 +17,25 @@ const About = () => {
               className="about-image-card"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="badge">Founder & Developer</div>
-              <h3 className="about-name">Freelancer</h3>
-              <p className="about-meta">Based worldwide</p>
+              <div className="badge">Digital Agency</div>
+              <h3 className="about-name">ADEX</h3>
+              <p className="about-meta">Headquartered Worldwide</p>
             </motion.div>
             
             <motion.div 
               className="about-content"
             >
-              <h3>One mind, clear vision.</h3>
-              <p>I am the sole mind behind this portfolio. No big team, no unnecessary meetings, no wasted hours. As a developer with innovative thinking, I work efficiently with quality and fast.</p>
-              <p>I manage and execute everything myself to deliver the best result. I am the best partner you'll find when it comes to excellence.</p>
+              <h3>Innovating the digital landscape.</h3>
+              <p>Adex is a multidisciplinary digital agency dedicated to crafting premium web experiences that drive growth. We believe in the power of clean code, intuitive design, and data-driven strategies to help brands excel in the modern marketplace.</p>
+              <p>Our team of experts manages every aspect of your project—from initial strategy to final deployment—ensuring a seamless process and exceptional results. We are your partner in digital transformation.</p>
               
               <div className="about-stats">
                 <motion.div 
                   className="stat-box"
                   whileHover={{ y: -5, color: '#00f0ff' }}
                 >
-                  <h4>100%</h4>
-                  <span>Satisfied Clients</span>
+                  <h4>50+</h4>
+                  <span>Projects Delivered</span>
                 </motion.div>
                 <motion.div 
                   className="stat-box"
@@ -47,7 +47,7 @@ const About = () => {
               </div>
               
               <div className="about-tags">
-                {['WEB DEVELOPMENT', 'UI/UX DESIGN', 'AUTOMATION'].map((tag, i) => (
+                {['FULL-SERVICE DEV', 'UI/UX STRATEGY', 'SEO & GROWTH'].map((tag, i) => (
                   <motion.span 
                     key={i} 
                     className="tag"

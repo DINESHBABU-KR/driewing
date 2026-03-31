@@ -32,8 +32,8 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="section-title">My <span className="text-gradient">Services</span></h2>
-          <p className="section-subtitle">What I can do for you</p>
+          <h2 className="section-title">Our <span className="text-gradient">Services</span></h2>
+          <p className="section-subtitle">Solutions we can provide for your success</p>
         </motion.div>
 
         <div className="services-grid">

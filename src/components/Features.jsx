@@ -10,8 +10,8 @@ const Features = () => {
       <div className="container">
         <div className="bento-container">
           <div className="portfolio-header">
-            <h2 className="card-title">Results<span className="period">.</span></h2>
-            <p className="portfolio-subtitle">Websites optimized for real measurable results.</p>
+            <h2 className="card-title">Services<span className="period">.</span></h2>
+            <p className="portfolio-subtitle">Digital solutions optimized for real measurable results.</p>
           </div>
 
           <div className="bento-grid">

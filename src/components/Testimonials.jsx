@@ -31,7 +31,7 @@ const Testimonials = () => {
         <div className="card-container testimonials-container">
           <div className="portfolio-header">
             <h2 className="card-title">Reviews<span className="period">.</span></h2>
-            <p className="portfolio-subtitle">What people are saying about the work.</p>
+            <p className="portfolio-subtitle">What our clients are saying about our design and development partnerships.</p>
           </div>
 
           <div className="testimonials-grid">

@@ -27,7 +27,7 @@ const Contact = () => {
             <div className="contact-info">
               <span className="contact-badge">Get in touch</span>
               <h2 className="contact-title">Ready for your project?</h2>
-              <p className="contact-desc">Let's get started together. Send me a request and receive a response within 12 hours.</p>
+              <p className="contact-desc">Let's build something exceptional together. Send us a request and our team will get back to you within 24 hours.</p>
               
               <div className="location-info">
                 <strong>Our Location</strong>

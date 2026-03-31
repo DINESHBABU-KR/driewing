@@ -6,31 +6,31 @@ import './Pricing.css';
 
 const pricingData = [
   {
-    title: 'landing page',
-    desc: 'A professional page with contact form and automatic emails. Quickly online.',
-    type: 'SINGLE PAYMENT',
-    price: '₹999',
-    features: ['1 page (landing page)', 'Contact form', 'Automatic emails', 'Mobile optimized'],
+    title: 'Growth',
+    desc: 'The perfect package to launch your brand with a high-performance landing page.',
+    type: 'STARTING AT',
+    price: '₹24,999',
+    features: ['Custom design', 'Conversion optimized', 'Lead capture form', 'Mobile responsive'],
     isPopular: false,
     btnText: 'Get Started'
   },
   {
-    title: 'standard',
-    desc: 'The perfect start for professional demands. Ideal for established websites.',
-    type: 'SINGLE PAYMENT',
-    price: '₹2,999',
-    features: ['3 pages', 'Contact form', 'Automatic emails', 'Mobile optimized'],
+    title: 'Professional',
+    desc: 'A full-scale digital presence with multiple pages and advanced SEO strategy.',
+    type: 'STARTING AT',
+    price: '₹59,999',
+    features: ['Multi-page structure', 'Strategic SEO core', 'Performance optimized', 'Domain & Hosting setup'],
     isPopular: true,
-    btnText: 'Get Started'
+    btnText: 'Partner With Us'
   },
   {
-    title: 'big project',
-    desc: 'For complex web applications, large platforms, and customized full trading sites.',
-    type: 'CUSTOM ARCHITECTURE',
+    title: 'Custom Solution',
+    desc: 'Scalable web applications, e-commerce, and complex technical architectures.',
+    type: 'ENTERPRISE',
     price: 'Variable',
-    features: ['Tailored Solutions', 'Advanced Features', 'Database Integration', 'Priority Support'],
+    features: ['Fullstack development', 'Third-party integrations', 'Database architecture', 'Ongoing partnership'],
     isPopular: false,
-    btnText: 'Let\'s Talk'
+    btnText: 'Let\'s Consult'
   }
 ];
 

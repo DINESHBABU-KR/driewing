@@ -54,7 +54,7 @@ const Hero = () => {
           </Magnetic>
 
           <WordReveal 
-            text="We build websites that grow your business" 
+            text="Digital solutions crafted for scale and impact" 
             className="hero-title"
             delay={0.2}
           />
@@ -65,8 +65,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            Premium web design, React development, and SEO optimization. We
-            deliver stunning, high-performing websites tailored to scale your brand.
+            We partner with forward-thinking brands to build high-performance 
+            web experiences. From React development to strategic SEO, we 
+            transform your vision into digital excellence.
           </motion.p>
           <motion.div
             className="hero-btns"
