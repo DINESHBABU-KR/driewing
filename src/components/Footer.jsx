@@ -1,6 +1,6 @@
-import React from 'react';
-import logoBrand from '../assets/logo-brand.png';
-import './Footer.css';
+import React from "react";
+import logoBrand from "../assets/gw_logo.png";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -10,7 +10,8 @@ const Footer = () => {
           <img src={logoBrand} alt="Adex Logo" className="footer-logo-img" />
         </div>
         <p className="footer-copy">
-          &copy; {new Date().getFullYear()} Advanced Digital Excellence. All rights reserved.
+          &copy; {new Date().getFullYear()} Advanced Digital Excellence. All
+          rights reserved.
         </p>
       </div>
     </footer>

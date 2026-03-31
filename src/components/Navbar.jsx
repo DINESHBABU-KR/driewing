@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import logoBrand from '../assets/logo-brand.png';
-import Magnetic from './Magnetic';
-import './Navbar.css';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
+import { FaBars, FaTimes } from "react-icons/fa";
+import logoBrand from "../assets/gw_logo.png";
+import Magnetic from "./Magnetic";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -37,25 +37,38 @@ const Navbar = () => {
       lastScrollY = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`navbar-wrapper ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''}`}>
+    <header
+      className={`navbar-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}
+    >
       <div className="navbar">
         <div className="logo">
-          <Link to="hero" spy={true} smooth={true} offset={-100} duration={200} onClick={closeMenu}>
+          <Link
+            to="hero"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={200}
+            onClick={closeMenu}
+          >
             <img src={logoBrand} alt="Adex Logo" className="logo-img" />
           </Link>
         </div>
 
         <div className="menu-icon" onClick={handleClick}>
-          {click ? <FaTimes size={20} color="#fff" /> : <FaBars size={20} color="#fff" />}
+          {click ? (
+            <FaTimes size={20} color="#fff" />
+          ) : (
+            <FaBars size={20} color="#fff" />
+          )}
         </div>
 
-        <motion.ul 
-          className={click ? 'nav-menu active' : 'nav-menu'}
+        <motion.ul
+          className={click ? "nav-menu active" : "nav-menu"}
           initial="hidden"
           animate="visible"
           variants={{
@@ -70,37 +83,55 @@ const Navbar = () => {
           }}
         >
           {[
-            { to: 'services', label: 'Services' },
-            { to: 'portfolio', label: 'Work' },
-            { to: 'pricing', label: 'Pricing' },
-            { to: 'about', label: 'About' },
-            { to: 'team', label: 'Team' },
-            { to: 'faq', label: 'Faq' },
+            { to: "services", label: "Services" },
+            { to: "portfolio", label: "Work" },
+            { to: "pricing", label: "Pricing" },
+            { to: "about", label: "About" },
+            { to: "team", label: "Team" },
+            { to: "faq", label: "Faq" },
           ].map((item, index) => (
-            <motion.li 
-              key={index} 
+            <motion.li
+              key={index}
               className="nav-item"
               variants={{
                 hidden: { opacity: 0, y: -10 },
                 visible: { opacity: 1, y: 0 },
               }}
             >
-              <Link to={item.to} spy={true} smooth={true} offset={-100} duration={200} onClick={closeMenu}>
+              <Link
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={200}
+                onClick={closeMenu}
+              >
                 {item.label}
               </Link>
             </motion.li>
           ))}
         </motion.ul>
 
-        <motion.div 
+        <motion.div
           className="nav-cta hide-mobile"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Link to="contact" spy={true} smooth={true} offset={-100} duration={200}>
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={200}
+          >
             <Magnetic strength={0.3}>
-              <button className="btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>Book a Call</button>
+              <button
+                className="btn-primary"
+                style={{ padding: "10px 24px", fontSize: "0.9rem" }}
+              >
+                Book a Call
+              </button>
             </Magnetic>
           </Link>
         </motion.div>

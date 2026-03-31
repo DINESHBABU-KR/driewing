@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { SiReact, SiNodedotjs, SiNextdotjs, SiMongodb, SiSpringboot, SiMysql, SiFirebase, SiSupabase } from 'react-icons/si';
-import logoBrand from '../assets/logo-brand.png';
+import logoBrand from '../assets/gw_logo.png';
 import WordReveal from './WordReveal';
 import Magnetic from './Magnetic';
 import './Hero.css';
@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="hero-glow-1"></div>
       <div className="hero-glow-2"></div>
       <div className="hero-grid-bg"></div>
-      <div 
+      <div
         className="hero-interactive-blob"
         style={{
           transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)`,
@@ -53,20 +53,20 @@ const Hero = () => {
             </motion.div>
           </Magnetic>
 
-          <WordReveal 
-            text="Digital solutions crafted for scale and impact" 
+          <WordReveal
+            text="Digital solutions crafted for scale and impact"
             className="hero-title"
             delay={0.2}
           />
-          
+
           <motion.p
             className="hero-description"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            We partner with forward-thinking brands to build high-performance 
-            web experiences. From React development to strategic SEO, we 
+            We partner with forward-thinking brands to build high-performance
+            web experiences. From React development to strategic SEO, we
             transform your vision into digital excellence.
           </motion.p>
           <motion.div
