@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logoBrand from "../assets/gw_logo.png";
+import logoBrand from "../assets/brand_logo.png";
 import Magnetic from "./Magnetic";
 import "./Navbar.css";
 

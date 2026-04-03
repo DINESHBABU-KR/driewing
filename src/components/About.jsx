@@ -11,7 +11,7 @@ const About = () => {
             <h2 className="card-title">
               About<span className="period">.</span>
             </h2>
-            <p className="portfolio-subtitle">The mind behind the work.</p>
+            <p className="portfolio-subtitle">Expertise that scales.</p>
           </div>
 
           <div className="about-grid">
@@ -27,10 +27,10 @@ const About = () => {
             <motion.div className="about-content">
               <h3>Innovating the digital landscape.</h3>
               <p>
-                Driewing is a multidisciplinary digital agency dedicated to
-                crafting premium web experiences that drive growth. We believe
-                in the power of clean code, intuitive design, and data-driven
-                strategies to help brands excel in the modern marketplace.
+                Driewing is a premium digital agency specialized in
+                crafting high-performance web experiences. We combine
+                technical excellence with strategic design to help brands
+                dominate the digital landscape.
               </p>
               <p>
                 Our team of experts manages every aspect of your project—from

@@ -94,11 +94,23 @@ const Hero = () => {
       ></div>
       <div className="container hero-container">
         <div className="hero-text-side">
+          <Magnetic strength={0.2}>
+            <motion.div
+              className="hero-badge"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+            >
+              <img src={logoBrand} alt="Driewing" className="badge-logo" />
+              <span className="badge-text" style={{ fontWeight: "600" }}>
+                Driewing
+              </span>
+            </motion.div>
+          </Magnetic>
 
           <div className="hero-title-container">
             <h1 className="hero-title">
-              Great <span className="highlight">Businesses</span> Deserve Great Digital Products.
-              {/* Expert <span className="highlight">Web Development</span> Agency for Scalable Digital Solutions */}
+              Expert <span className="highlight">Web Development</span> Agency for Scalable Digital Solutions
             </h1>
           </div>
 
@@ -108,10 +120,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Driewing builds tailored, high-performance software solutions that streamline operations, accelerate growth, and give your business a real digital edge — built to evolve as you do.
-            {/* From pixel-perfect frontends to bulletproof backends — we engineer digital products that convert visitors into loyal customers. */}
-            {/* Specialized in React, Node.js, and strategic digital growth, we
-            transform your vision into a competitive advantage. */}
+            We craft high-performance web experiences that drive results.
+            Specialized in React, Node.js, and strategic digital growth, we
+            transform your vision into a competitive advantage.
           </motion.p>
 
           <motion.div
@@ -121,7 +132,6 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <span className="service-tag">Web Apps</span>
-            <span className="service-tag">Mobile Apps</span>
             <span className="service-tag">Cloud Architecture</span>
             <span className="service-tag">UI/UX Design</span>
             <span className="service-tag">SEO Strategy</span>

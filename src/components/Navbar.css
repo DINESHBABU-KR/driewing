@@ -41,6 +41,10 @@
   cursor: pointer;
 }
 
+.logo svg {
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+}
+
 .logo-img {
   height: 50px;
   width: auto;
@@ -51,6 +55,7 @@
 .logo:hover .logo-img {
   transform: scale(1.05);
 }
+
 
 .nav-menu {
   display: flex;
