@@ -1,100 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaTwitter, FaGithub } from 'react-icons/fa';
 import './Team.css';
 
 const teamData = [
   {
-    name: 'Marcus Vance',
-    role: 'Founder & CEO',
-    imgUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', twitter: '#' }
+    name: 'Alex D.',
+    role: 'Lead Full-Stack Engineer',
+    imgUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    tags: ['Architecture', 'Scaling']
   },
   {
-    name: 'Elena Rostova',
-    role: 'Chief Technology Officer',
-    imgUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', github: '#' }
+    name: 'Sarah M.',
+    role: 'Senior Full-Stack Engineer',
+    imgUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80',
+    tags: ['Cloud', 'DevOps']
   },
   {
-    name: 'Julian Hayes',
-    role: 'Lead UX/UI Designer',
-    imgUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', twitter: '#' }
+    name: 'James K.',
+    role: 'Full-Stack Engineer',
+    imgUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+    tags: ['Back-end', 'API Design']
   },
   {
-    name: 'Sophia Chen',
-    role: 'Senior Full Stack Dev',
-    imgUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', github: '#' }
+    name: 'Elena R.',
+    role: 'Lead Mobile Engineer',
+    imgUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+    tags: ['React Native', 'Flutter']
   },
   {
-    name: 'David Kim',
-    role: 'Backend Engineer',
-    imgUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    socials: { github: '#', twitter: '#' }
+    name: 'Jason T.',
+    role: 'Lead Frontend Engineer',
+    imgUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80',
+    tags: ['Motion', 'UX/UI Design']
   },
   {
-    name: 'Amara Diop',
-    role: 'Frontend Developer',
-    imgUrl: 'https://images.unsplash.com/photo-1531123897727-8f129e1b4dce?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', github: '#' }
-  },
-  {
-    name: 'Leo Santiago',
-    role: 'DevOps Specialist',
-    imgUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', github: '#' }
-  },
-  {
-    name: 'Rachel Zane',
-    role: 'Marketing Director',
-    imgUrl: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=400&q=80',
-    socials: { linkedin: '#', twitter: '#' }
+    name: 'Mia S.',
+    role: 'Lead UI/UX Designer',
+    imgUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    tags: ['Brand', 'Strategy']
   }
 ];
 
 const Team = () => {
   return (
-    <section id="team" className="section-wrapper">
+    <section id="team" className="team-section">
       <div className="container">
-        <div className="card-container team-container">
-          <div className="portfolio-header">
-            <h2 className="card-title">Our Team<span className="period">.</span></h2>
-            <p className="portfolio-subtitle">The brilliant minds behind every successful project.</p>
-          </div>
+        <div className="portfolio-header center-text">
+          <h2 className="card-title">
+            Our Elite Collective<span className="period">.</span>
+          </h2>
+          <p className="portfolio-subtitle">
+            6 engineering specialists. Hundreds of high-performance products.
+          </p>
+        </div>
 
-          <div className="team-grid">
-            {teamData.map((member, index) => (
-              <div 
-                className="team-card"
-                key={index}
-              >
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <div className="team-img-wrapper">
-                      <img src={member.imgUrl} alt={member.name} className="team-img" />
-                    </div>
-                    <div className="team-info">
-                      <h3>{member.name}</h3>
-                      <p>{member.role}</p>
-                    </div>
-                  </div>
-                  <div className="flip-card-back">
-                    <div className="back-content">
-                      <h3>{member.name}</h3>
-                      <p>{member.role}</p>
-                      <div className="social-links">
-                        {member.socials.linkedin && <a href={member.socials.linkedin} target="_blank" rel="noreferrer"><FaLinkedinIn /></a>}
-                        {member.socials.twitter && <a href={member.socials.twitter} target="_blank" rel="noreferrer"><FaTwitter /></a>}
-                        {member.socials.github && <a href={member.socials.github} target="_blank" rel="noreferrer"><FaGithub /></a>}
-                      </div>
-                    </div>
+        <div className="team-grid-layout">
+          {teamData.map((member, index) => (
+            <motion.div
+              className="elite-card"
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="elite-img-box">
+                <img src={member.imgUrl} alt={member.name} className="elite-img" />
+                <div className="elite-img-filter"></div>
+                <div className="elite-hover-content">
+                  <div className="elite-tags">
+                    {member.tags.map((tag, i) => (
+                      <span key={i} className="elite-tag-pill">{tag}</span>
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="elite-info-box">
+                <h3 className="elite-name">{member.name}</h3>
+                <p className="elite-role">{member.role}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

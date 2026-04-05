@@ -11,7 +11,8 @@ import {
   SiFirebase,
   SiSupabase,
 } from "react-icons/si";
-import logoBrand from "../assets/gw_logo.png";
+import logoBrand from "../assets/brand_logo.png";
+import heroImg from "../assets/hero-agency.png";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import "./Hero.css";
@@ -63,47 +64,66 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section" onMouseMove={handleMouseMove}>
+      <div className="hero-noise-overlay"></div>
       <div className="hero-glow-1"></div>
       <div className="hero-glow-2"></div>
       <div className="hero-grid-bg"></div>
+
+      {/* Floating Elements */}
+      <motion.div
+        className="floating-shape shape-1"
+        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="floating-shape shape-2"
+        animate={{ y: [0, 25, 0], x: [0, -15, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+      <motion.div
+        className="floating-shape shape-3"
+        animate={{ y: [0, -15, 0], x: [0, 20, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+
       <div
         className="hero-interactive-blob"
         style={{
-          transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)`,
+          transform: `translate(${mousePos.x - 250}px, ${mousePos.y - 250}px)`,
         }}
       ></div>
       <div className="container hero-container">
-        <div className="hero-content">
-          <Magnetic strength={0.2}>
-            <motion.div
-              className="hero-badge"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-            >
-              <img src={logoBrand} alt="Driewing" className="badge-logo" />
-              <span className="badge-text" style={{ fontWeight: "600" }}>
-                Driewing
-              </span>
-            </motion.div>
-          </Magnetic>
+        <div className="hero-text-side">
 
-          <WordReveal
-            text="Digital solutions crafted for scale and impact"
-            className="hero-title"
-            delay={0.2}
-          />
+          <div className="hero-title-container">
+            <h1 className="hero-title">
+              Driewing <span className="highlight">Technologies</span>
+            </h1>
+          </div>
 
           <motion.p
             className="hero-description"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            Turning ideas into scalable digital products.<br/>
+            <strong>Web • Mobile • Blockchain • SEO</strong>
+          </motion.p>
+
+          <motion.div
+            className="service-tags"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            We partner with forward-thinking brands to build high-performance
-            web experiences. From React development to strategic SEO, we
-            transform your vision into digital excellence.
-          </motion.p>
+            <span className="service-tag">Web Apps</span>
+            <span className="service-tag">Mobile Apps</span>
+            <span className="service-tag">Cloud Architecture</span>
+            <span className="service-tag">UI/UX Design</span>
+            <span className="service-tag">SEO Strategy</span>
+          </motion.div>
+
           <motion.div
             className="hero-btns"
             initial={{ opacity: 0 }}
@@ -121,6 +141,34 @@ const Hero = () => {
                 <button className="btn-primary">Book a Call</button>
               </Magnetic>
             </Link>
+          </motion.div>
+        </div>
+
+        <div className="hero-image-side">
+          <motion.div
+            className="hero-image-wrapper"
+            initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+          >
+            <div className="image-glow"></div>
+            <img src={heroImg} alt="Agency Innovation" className="hero-main-img" />
+
+            {/* Decorative Elements */}
+            <motion.div
+              className="tech-badge react"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <SiReact color="#61DAFB" />
+            </motion.div>
+            <motion.div
+              className="tech-badge node"
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <SiNodedotjs color="#339933" />
+            </motion.div>
           </motion.div>
         </div>
       </div>

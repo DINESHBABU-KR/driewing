@@ -26,7 +26,7 @@ const Projects = () => {
 
   return (
     <Container className="py-5">
-      <h2 className="mb-5 text-center">My Projects</h2>
+      <h2 className="mb-5 text-center">Our Projects</h2>
       <Row>
         {projects.map((project, index) => (
           <Col md={4} className="mb-4" key={index}>

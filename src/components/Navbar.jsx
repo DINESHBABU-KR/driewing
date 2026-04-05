@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logoBrand from "../assets/gw_logo.png";
+import logoBrand from "../assets/brand_logo.png";
 import Magnetic from "./Magnetic";
 import "./Navbar.css";
 
@@ -54,8 +54,10 @@ const Navbar = () => {
             offset={-100}
             duration={200}
             onClick={closeMenu}
+            style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
           >
             <img src={logoBrand} alt="Driewing Logo" className="logo-img" />
+            <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fff', letterSpacing: '1px' }}>Driewing.</span>
           </Link>
         </div>
 
@@ -85,10 +87,8 @@ const Navbar = () => {
           {[
             { to: "services", label: "Services" },
             { to: "portfolio", label: "Work" },
-            { to: "pricing", label: "Pricing" },
             { to: "about", label: "About" },
-            { to: "team", label: "Team" },
-            { to: "faq", label: "Faq" },
+            // { to: "team", label: "Team" },
           ].map((item, index) => (
             <motion.li
               key={index}

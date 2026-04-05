@@ -21,45 +21,48 @@ const reviewsData = [
     role: 'Marketing Director, Lumiere',
     content: 'Communication was flawless throughout the entire process. They took our vague ideas and turned them into a stunning, high-performing digital experience.',
     rating: 5,
+  },
+  {
+    name: 'Liam O’Brien',
+    role: 'Founder, Nexus Labs',
+    content: 'Driewing Technologies delivered a Web3 product that was secure, audited, and incredibly intuitive for our users. Their understanding of the Solana ecosystem is unparalleled.',
+    rating: 5,
   }
 ];
 
 const Testimonials = () => {
-  return (
-    <section id="testimonials" className="section-wrapper">
-      <div className="container">
-        <div className="card-container testimonials-container">
-          <div className="portfolio-header">
-            <h2 className="card-title">Reviews<span className="period">.</span></h2>
-            <p className="portfolio-subtitle">What our clients are saying about our design and development partnerships.</p>
-          </div>
+  // Triple the data for smooth marquee looping
+  const marqueeData = [...reviewsData, ...reviewsData, ...reviewsData];
 
-          <div className="testimonials-grid">
-            {reviewsData.map((review, i) => (
-              <motion.div 
-                className="review-card"
-                key={i}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
+  return (
+    <section id="testimonials" className="testimonials-marquee-section">
+      <div className="container">
+        <div className="portfolio-header center-text">
+          <h2 className="card-title">Client Success Stories<span className="period">.</span></h2>
+          <p className="portfolio-subtitle">Trusted by founders and product teams globally.</p>
+        </div>
+      </div>
+
+      <div className="marquee-wrapper">
+        <div className="marquee-track-horizontal">
+          {marqueeData.map((review, i) => (
+            <div className="review-marquee-card" key={i}>
+              <div className="review-top">
                 <div className="stars">
                   {[...Array(review.rating)].map((_, index) => (
                     <FaStar key={index} className="star-icon" />
                   ))}
                 </div>
-                <p className="review-content">"{review.content}"</p>
-                <div className="review-author">
-                  <div className="author-avatar">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div className="author-info">
-                    <h4>{review.name}</h4>
-                    <span>{review.role}</span>
-                  </div>
+              </div>
+              <p className="review-content">"{review.content}"</p>
+              <div className="review-author">
+                <div className="author-info">
+                  <h4>{review.name}</h4>
+                  <span>{review.role}</span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

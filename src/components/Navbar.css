@@ -19,8 +19,8 @@
 }
 
 .navbar {
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1200px;
@@ -39,6 +39,12 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  z-index: 2;
+  margin-right: 60px; /* Gives a perfect gap between logo and menu */
+}
+
+.logo svg {
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
 }
 
 .logo-img {
@@ -52,10 +58,12 @@
   transform: scale(1.05);
 }
 
+
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+  margin-right: auto; /* Pushes the CTA to the far right */
 }
 
 .nav-item {
@@ -101,7 +109,9 @@
     justify-content: center;
     position: absolute;
     top: 90px;
-    right: 0;
+    right: 20px;
+    left: auto;
+    margin-right: 0;
     width: 250px;
     background: #0b0f19;
     border-radius: var(--border-radius-md);
@@ -112,6 +122,15 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .nav-cta, .hide-mobile {
+    display: none;
+  }
+  
+  .menu-icon {
+    margin-left: auto;
   }
 
   .nav-menu.active {

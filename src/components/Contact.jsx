@@ -12,6 +12,7 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    // Logic preserved but you must fill in your EmailJS credentials
     emailjs
       .sendForm(
         "YOUR_SERVICE_ID",
@@ -31,102 +32,89 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="agency-contact-section">
       <div className="container">
-        <div className="contact-card">
-          <div className="contact-grid">
-            <div className="contact-info">
-              <span className="contact-badge">Get in touch</span>
-              <h2 className="contact-title">Ready for your project?</h2>
-              <p className="contact-desc">
-                Let's build something exceptional together. Send us a request
-                and our team will get back to you within 24 hours.
+        <div className="contact-dashboard">
+          <div className="dashboard-grid">
+
+            {/* Left Side: The Pitch */}
+            <div className="contact-pitch">
+              <div className="availability-wrapper">
+                <span className="pulse-dot"></span>
+                <span className="availability-text">Actively accepting new projects</span>
+              </div>
+
+              <h2 className="dashboard-title">
+                Let's Build Together. <br />
+                <span className="gradient-text">
+                  Got an idea?.</span>
+              </h2>
+
+              <p className="dashboard-desc">
+                Tell us what you're working on — we'll figure out the best way to bring it to life.
               </p>
 
-              <div className="location-info">
-                <strong>Our Location</strong>
-                <p>Worldwide / Remote</p>
-              </div>
-            </div>
-
-            <div className="contact-form-side">
-              <div className="contact-form-box">
-                <div className="contact-logo-wrapper">
-                  <img
-                    src={logoBrand}
-                    alt="Driewing Logo"
-                    className="contact-form-logo"
-                  />
+              <div className="contact-details-row">
+                <div className="contact-detail-item">
+                  <span className="detail-label">Office</span>
+                  <span className="detail-value">Remote</span>
                 </div>
-                <p className="form-box-subtitle">
-                  Web Design & Software Development
-                </p>
-                <span className="availability-badge">
-                  ● Available for new projects
-                </span>
-
-                <form
-                  ref={formRef}
-                  onSubmit={sendEmail}
-                  className="contact-form"
-                >
-                  <input
-                    type="text"
-                    name="user_name"
-                    required
-                    placeholder="Name"
-                  />
-                  <input
-                    type="email"
-                    name="user_email"
-                    required
-                    placeholder="Email"
-                  />
-                  <textarea
-                    name="message"
-                    rows="4"
-                    required
-                    placeholder="Message"
-                  ></textarea>
-                  <Magnetic strength={0.3}>
-                    <button
-                      type="submit"
-                      className="btn-accent"
-                      style={{ width: "100%" }}
-                    >
-                      START PROJECT
-                    </button>
-                  </Magnetic>
-                  {isSent && (
-                    <div className="form-msg success">Sent successfully!</div>
-                  )}
-                  {error && (
-                    <div className="form-msg error">Failed to send.</div>
-                  )}
-                </form>
+                <div className="contact-detail-item">
+                  <span className="detail-label">Inquiries</span>
+                  <span className="detail-value">driewingtech@gmail.com</span>
+                </div>
               </div>
             </div>
+
+            {/* Right Side: The Form */}
+            <div className="contact-form-card">
+              <form
+                ref={formRef}
+                onSubmit={sendEmail}
+                className="minimal-form"
+              >
+                <div className="form-row">
+                  <div className="input-group">
+                    <input type="text" name="user_name" required placeholder=" " id="name" />
+                    <label htmlFor="name">Your Name</label>
+                  </div>
+                  <div className="input-group">
+                    <input type="email" name="user_email" required placeholder=" " id="email" />
+                    <label htmlFor="email">Email Address</label>
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <textarea name="message" rows="5" required placeholder=" " id="message"></textarea>
+                  <label htmlFor="message">Project Details</label>
+                </div>
+
+                <Magnetic strength={0.2}>
+                  <button type="submit" className="dashboard-send-btn">
+                    Launch Project Inquiry
+                  </button>
+                </Magnetic>
+
+                {isSent && <div className="form-success">Inquiry Sent Successfully!</div>}
+                {error && <div className="form-error">Something went wrong. Please try again.</div>}
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <footer className="simple-footer">
-        <div className="container footer-content">
-          <div className="footer-logo">
-            <img
-              src={logoBrand}
-              alt="Driewing"
-              className="footer-simple-logo"
-            />
-            <span>
-              &copy; {new Date().getFullYear()} Advanced Digital Excellence. All
-              rights reserved.
-            </span>
+      <footer className="agency-footer">
+        <div className="container footer-bottom">
+          <div className="footer-left">
+            <span className="footer-brand">Driewing Technologies</span>
+            <span className="footer-copy">&copy; {new Date().getFullYear()} Modern Digital Excellence.</span>
           </div>
-          <div className="footer-links">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
+          <div className="footer-right">
+            <a href="#services">Capabilities</a>
             <a href="#portfolio">Work</a>
+            <a href="#about">Story</a>
+            <a href="#testimonials">Reviews</a>
           </div>
         </div>
       </footer>

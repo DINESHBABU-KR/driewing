@@ -1,52 +1,51 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaReact, FaNodeJs, FaJava } from 'react-icons/fa';
-import { SiMongodb, SiSolana, SiRust, SiWeb3Dotjs, SiExpress, SiSpringboot } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaJava, FaPython, FaPhp } from 'react-icons/fa';
+import { SiMongodb, SiSolana, SiRust, SiWeb3Dotjs, SiExpress, SiSpringboot, SiFlutter, SiNextdotjs } from 'react-icons/si';
 
 const About = () => {
   return (
     <Container className="py-5">
-      <h2 className="mb-4">About Me</h2>
+      <h2 className="mb-4">About Our Team</h2>
       <Row>
         <Col md={8}>
           <div className="card-handmade mb-4">
-            <h3>Experience</h3>
+            <h3>Our Expertise</h3>
             <div className="mb-3">
-              <h4>Software Developer</h4>
-              <p className="text-muted">January 2023 - present | Tamil Nadu, India</p>
+              <p className="text-muted">Over 3-4 years building scalable web and mobile apps</p>
               <ul>
-                <li>Designed and developed RESTful APIs using JavaScript and Java/Spring Boot.</li>
-                <li>Built backend services for blockchain and NFT-related applications.</li>
-                {/* <li>Integrated MongoDB for scalable data storage and optimized queries.</li> */}
-                <li>Worked on Fully on-chain E-commerce platform.</li>
-                <li>Solana - Rust Programming for Solan on-chain projects.</li>
-                <li>Worked on the full MERN stack, ensuring robust authentication and dashboards.</li>
-                <li>Collaborated with teams to deliver production-ready features and improve application stability.</li>
-                <li>Work with NFC and RFID based applications for real world Products.</li>
+                <li><strong>Web & Mobile Development:</strong> End-to-end full stack web applications and cross-platform mobile apps.</li>
+                <li><strong>Blockchain & Trading:</strong> Fully on-chain platforms, smart contracts, NFT applications, and Web3 integration.</li>
+                <li><strong>E-commerce & SaaS:</strong> Architecting high-performance portals and Software-as-a-Service platforms.</li>
+                <li><strong>SEO & Content:</strong> Optimizing digital presence to drive organic growth.</li>
               </ul>
             </div>
           </div>
 
           <Row>
-            <Col md={6}>
+            <Col md={12}>
               <div className="card-handmade mb-4 h-100">
-                <h3>Education</h3>
-                <p><strong>Bachelor's degree, Computer Science</strong><br />The Madura College, Madurai (June 2019 - April 2022)</p>
-              </div>
-            </Col>
-            <Col md={6}>
-              <div className="card-handmade mb-4 h-100">
-                <h3>Certifications</h3>
+                <h3>Our Team</h3>
                 <ul className="list-unstyled">
-                  <li className="mb-2">
-                    <strong>Full Stack Web Development</strong>
+                  <li className="mb-3">
+                    <strong>3 Full-Stack Developers</strong>
                     <br />
-                    <span className="text-muted">Udemy - 2023</span>
+                    <span className="text-muted">MERN stack, PHP, Solidity, Rust, Web3, Java, Python.</span>
+                  </li>
+                  <li className="mb-3">
+                    <strong>1 Frontend / UI Developer</strong>
+                    <br />
+                    <span className="text-muted">React.js, Next.js, and React-Vite.</span>
+                  </li>
+                  <li className="mb-3">
+                    <strong>1 Mobile App Developer</strong>
+                    <br />
+                    <span className="text-muted">React Native and Flutter.</span>
                   </li>
                   <li>
-                    <strong>Blockchain Fundamentals</strong>
+                    <strong>1 UI/UX Designer</strong>
                     <br />
-                    <span className="text-muted">Coursera - 2024</span>
+                    <span className="text-muted">Crafting seamless, intuitive, and modern experiences.</span>
                   </li>
                 </ul>
               </div>
@@ -59,11 +58,13 @@ const About = () => {
             <div className="d-flex flex-wrap gap-3 justify-content-center">
               {[
                 { name: "React", icon: <FaReact size={24} color="#61DAFB" /> },
+                { name: "Next.js", icon: <SiNextdotjs size={24} color="#000000" /> },
                 { name: "Node.js", icon: <FaNodeJs size={24} color="#339933" /> },
+                { name: "Flutter", icon: <SiFlutter size={24} color="#02569B" /> },
                 { name: "Java", icon: <FaJava size={24} color="#007396" /> },
-                { name: "Spring Boot", icon: <SiSpringboot size={24} color="#007396" /> },
+                { name: "Python", icon: <FaPython size={24} color="#3776AB" /> },
+                { name: "PHP", icon: <FaPhp size={24} color="#777BB4" /> },
                 { name: "MongoDB", icon: <SiMongodb size={24} color="#47A248" /> },
-                { name: "Express", icon: <SiExpress size={24} color="#000000" /> },
                 { name: "Web3.js", icon: <SiWeb3Dotjs size={24} color="#F16822" /> },
                 { name: "Solana", icon: <SiSolana size={24} color="#9945FF" /> },
                 { name: "Rust", icon: <SiRust size={24} color="#000000" /> },
@@ -92,7 +93,7 @@ const About = () => {
           </div>
           <div className="card-handmade" style={{ transform: 'rotate(2deg)' }}>
             <h4>Fun Fact</h4>
-            <p>I bridge the gap between Web2 and Web3!</p>
+            <p>We bridge the gap between imagination and scalable products across any domain!</p>
           </div>
         </Col>
       </Row>
