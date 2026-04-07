@@ -59,7 +59,7 @@ const Navbar = () => {
             style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
           >
             <img src={logoBrand} alt="Driewing Logo" className="logo-img" />
-            <span className="logo-wordmark">Driewing.</span>
+            <span className="logo-wordmark">Driewing</span>
           </Link>
         </div>
 

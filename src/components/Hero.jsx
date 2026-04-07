@@ -74,6 +74,18 @@ const Hero = () => {
     setMousePos({ x: clientX, y: clientY });
   };
 
+  React.useEffect(() => {
+    if (isCalendlyOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isCalendlyOpen]);
+
   return (
     <section id="hero" className="hero-section" onMouseMove={handleMouseMove}>
       <div className="hero-noise-overlay"></div>

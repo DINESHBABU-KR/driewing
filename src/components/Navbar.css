@@ -13,8 +13,13 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 }
 
-.navbar-wrapper.hidden  { transform: translateY(-110%); }
-.navbar-wrapper.scrolled{ padding: 14px; }
+.navbar-wrapper.hidden {
+  transform: translateY(-110%);
+}
+
+.navbar-wrapper.scrolled {
+  padding: 14px;
+}
 
 /* The pill container */
 .navbar {
@@ -51,7 +56,9 @@
   transition: transform 0.3s ease;
 }
 
-.logo:hover .logo-img { transform: scale(1.05); }
+.logo:hover .logo-img {
+  transform: scale(1.05);
+}
 
 .logo-wordmark {
   font-family: var(--font-display);
@@ -109,7 +116,9 @@
   }
 
   .hide-mobile,
-  .nav-cta { display: none !important; }
+  .nav-cta {
+    display: none !important;
+  }
 
   .nav-menu {
     position: absolute;
@@ -147,5 +156,35 @@
     margin: 2px 0;
   }
 
-  .nav-item a { width: 100%; text-align: center; }
+  .nav-item a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   CALENDLY POPUP OVERRIDES
+   ============================================================ */
+.calendly-modal,
+.calendly-popup-content,
+.calendly-popup-content iframe {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow: hidden !important;
+}
+
+.calendly-overlay .calendly-popup .calendly-popup-content {
+  height: 116% !important;
+}
+
+.calendly-overlay .calendly-popup {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  /* top: 40% !important; */
+}
+
+.calendly-modal::-webkit-scrollbar,
+.calendly-popup-content::-webkit-scrollbar,
+.calendly-popup-content iframe::-webkit-scrollbar {
+  display: none !important;
 }

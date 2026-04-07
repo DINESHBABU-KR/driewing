@@ -47,11 +47,11 @@ const About = () => {
 
               <div className="about-stats-row">
                 <div className="stat-item">
-                  <span className="stat-number">50+</span>
+                  <span className="stat-number">10+</span>
                   <span className="stat-label">Projects Delivered</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">2020</span>
+                  <span className="stat-number">2026</span>
                   <span className="stat-label">Year Founded</span>
                 </div>
               </div>

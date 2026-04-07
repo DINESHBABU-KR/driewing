@@ -6,31 +6,13 @@ import './Explore.css';
 import priyamImg from '../assets/priyam.png';
 
 const portfolioData = [
-  // {
-  //   title: 'Web3 NFT Marketplace',
-  //   desc: 'Uncompromising backend services for a high-volume blockchain application running on Ethereum.',
-  //   imgUrl: 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  //   tags: ['Web3', 'Ethereum']
-  // },
   {
     title: 'Priyam Digital Studio',
     desc: 'An immersive digital storefront developed exclusively for Priyam Photography Studio. Engineered from the ground up natively with Next.js, this platform features an automated media pipeline that seamlessly delivers high-resolution gallery images via direct Google Drive API integration—ensuring zero-friction live updates for the client.',
     imgUrl: priyamImg,
     tags: ['Next.js', 'Google Drive API', 'UI/UX Design', 'React'],
     projectUrl: 'https://priyam-digital-stilllifestudio.netlify.app/'
-  },
-  // {
-  //   title: 'Solana DApp Engine',
-  //   desc: 'Lightning-fast architecture and robust Rust blockchain components for Solana ecosystem.',
-  //   imgUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f4fc8bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  //   tags: ['Rust', 'Solana']
-  // },
-  // {
-  //   title: 'Global E-Commerce',
-  //   desc: 'Massively scalable online store with deep Stripe API integrations for frictionless checkout.',
-  //   imgUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  //   tags: ['React', 'Stripe']
-  // }
+  }
 ];
 
 const Explore = () => {
@@ -93,7 +75,7 @@ const Explore = () => {
       <div className="container">
         <div className="portfolio-header">
           <div>
-            <h2 className="card-title">Selected Projects<span className="period">.</span></h2>
+            <h2 className="card-title">Our Works<span className="period">.</span></h2>
             <p className="portfolio-subtitle">Explore our latest work across web, mobile, and Web3 platforms.</p>
           </div>
           {dataLength > 1 && (
