@@ -4,12 +4,14 @@ import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logoBrand from "../assets/brand_logo.png";
 import Magnetic from "./Magnetic";
+import { PopupModal } from "react-calendly";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
@@ -57,7 +59,7 @@ const Navbar = () => {
             style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
           >
             <img src={logoBrand} alt="Driewing Logo" className="logo-img" />
-            <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fff', letterSpacing: '1px' }}>Driewing.</span>
+            <span className="logo-wordmark">Driewing.</span>
           </Link>
         </div>
 
@@ -118,24 +120,24 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={200}
-          >
-            <Magnetic strength={0.3}>
-              <button
-                className="btn-primary"
-                style={{ padding: "10px 24px", fontSize: "0.9rem" }}
-              >
-                Book a Call
-              </button>
-            </Magnetic>
-          </Link>
+          <Magnetic strength={0.3}>
+            <button
+              className="btn-primary"
+              style={{ padding: "10px 24px", fontSize: "0.9rem" }}
+              onClick={() => setIsCalendlyOpen(true)}
+            >
+              Book a Call
+            </button>
+          </Magnetic>
         </motion.div>
       </div>
+
+      <PopupModal
+        url="https://calendly.com/driewingtech"
+        onModalClose={() => setIsCalendlyOpen(false)}
+        open={isCalendlyOpen}
+        rootElement={document.getElementById("root")}
+      />
     </header>
   );
 };

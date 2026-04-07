@@ -91,7 +91,7 @@ const Explore = () => {
   return (
     <section id="portfolio" className="marquee-section">
       <div className="container">
-        <div className="marquee-header">
+        <div className="portfolio-header">
           <div>
             <h2 className="card-title">Selected Projects<span className="period">.</span></h2>
             <p className="portfolio-subtitle">Explore our latest work across web, mobile, and Web3 platforms.</p>
@@ -119,10 +119,7 @@ const Explore = () => {
 
 /* Reusable Component for individual cards */
 const MarqueeCard = ({ project, index, isSingle }) => (
-  <div
-    className="marquee-card"
-    style={isSingle ? { width: '100%', maxWidth: '800px', height: '600px', margin: '0 auto', cursor: 'default' } : {}}
-  >
+  <div className={`marquee-card${isSingle ? ' marquee-card--single' : ''}`}>
     <img src={project.imgUrl} className="marquee-img" alt={project.title} draggable="false" />
     <div className="marquee-overlay">
       <div className="marquee-content">
@@ -135,14 +132,13 @@ const MarqueeCard = ({ project, index, isSingle }) => (
         <p>{project.desc}</p>
         <div className="marquee-action">
           <Magnetic strength={0.1}>
-            <a 
-               href={project.projectUrl || '#'} 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="marquee-btn" 
-               style={{ textDecoration: 'none' }}
+            <a
+              href={project.projectUrl || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="marquee-btn"
             >
-              Explore Project <FaExternalLinkAlt size={10} style={{ marginLeft: '8px' }} />
+              Explore Project <FaExternalLinkAlt size={10} />
             </a>
           </Magnetic>
         </div>

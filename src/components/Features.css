@@ -1,119 +1,97 @@
+/* ============================================================
+   FEATURES / SERVICES BENTO SECTION
+   ============================================================ */
 .services-bento-section {
-  padding: 150px 0;
+  padding: var(--section-padding-lg) 0;
   background-color: var(--bg-color);
   width: 100%;
 }
 
-/* --------------------------------------
-   THE CUSTOM AGENCY BENTO GRID
---------------------------------------- */
+/* -------- BENTO GRID -------- */
 .master-bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 50/50 split balances short text perfectly */
-  grid-auto-rows: 250px; 
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 260px;
+  gap: 20px;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .bento-box {
-  background: rgba(11, 15, 25, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
+  background: rgba(11, 15, 25, 0.55);
+  border: var(--border-default);
+  border-radius: var(--border-radius-md);
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
 }
 
-/* Specific Grid Placements */
-.box-web {
-  grid-column: span 1;
-  grid-row: span 2;
-}
+/* Grid Placements */
+.box-web   { grid-column: span 1; grid-row: span 2; min-height: 500px; }
+.box-mobile{ grid-column: span 1; grid-row: span 1; }
+.box-seo   { grid-column: span 1; grid-row: span 1; }
+.box-web3  { grid-column: span 2; grid-row: span 1; }
 
-/* Center the content vertically since the box is so tall */
+/* Web box: vertically center the content for a clean hero card look */
 .box-web .bento-content {
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px;
 }
 
-.box-mobile {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.box-seo {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.box-web3 {
-  grid-column: span 2; /* Spans the entire bottom row */
-  grid-row: span 1;
-}
-
-/* Hover Physics */
+/* Hover physics */
 .bento-box:hover {
-  transform: translateY(-5px) scale(1.01);
-  background: rgba(15, 20, 35, 0.8);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.005);
+  background: rgba(15, 20, 35, 0.75);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
-/* Add custom color hovers for specific boxes */
-.box-web:hover { border-color: rgba(0, 240, 255, 0.3); }
-.box-mobile:hover { border-color: rgba(138, 43, 226, 0.3); }
-.box-seo:hover { border-color: rgba(0, 240, 255, 0.3); }
-.box-web3:hover { border-color: rgba(255, 255, 255, 0.4); }
+.box-web:hover   { border-color: rgba(0, 240, 255, 0.3); }
+.box-mobile:hover{ border-color: rgba(138, 43, 226, 0.3); }
+.box-seo:hover   { border-color: rgba(0, 240, 255, 0.3); }
+.box-web3:hover  { border-color: rgba(255, 255, 255, 0.3); }
 
-
-/* Ambient Glowing Orbs */
+/* -------- AMBIENT GLOWING ORBS -------- */
 .bento-glow {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.15;
+  opacity: 0.12;
   z-index: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
-.bento-box:hover .bento-glow {
-  opacity: 0.4; /* Orbs brighten when box is hovered */
-}
+.bento-box:hover .bento-glow { opacity: 0.35; }
 
-/* Orb Colors */
-.orb-blue { background: #00f0ff; }
-.orb-purple { background: #8a2be2; }
-.orb-cyan { background: #00ffff; }
+.orb-blue   { background: var(--accent-primary); }
+.orb-purple { background: var(--accent-secondary); }
+.orb-cyan   { background: #00ffff; }
 
-/* Orb Placements */
-.top-left { top: -80px; left: -80px; }
-.top-right { top: -80px; right: -80px; }
+.top-left    { top: -80px;  left: -80px; }
+.top-right   { top: -80px;  right: -80px; }
 .bottom-left { bottom: -80px; left: -80px; }
-.bottom-right { bottom: -80px; right: -80px; }
-.right-center { top: 50%; right: -50px; transform: translateY(-50%); }
+.bottom-right{ bottom: -80px; right: -80px; }
+.right-center{ top: 50%; right: -50px; transform: translateY(-50%); }
 
-/* --------------------------------------
-   TEXT AND INNER CONTENT
---------------------------------------- */
+/* -------- INNER CONTENT -------- */
 .bento-content {
   position: relative;
-  z-index: 1; /* Stay above glowing orbs */
-  padding: 40px;
+  z-index: 1;
+  padding: 36px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.flex-column-between {
-  justify-content: space-between;
-}
+.flex-column-between { justify-content: space-between; }
 
 .bento-header-split {
   display: flex;
@@ -123,142 +101,132 @@
 }
 
 .bento-id {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
   color: var(--text-secondary);
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
+/* Icons */
 .bento-icon {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   transition: all 0.4s ease;
 }
 
-.mega-icon { font-size: 4.5rem; opacity: 0.8; margin-bottom: 40px; }
-.mini-icon { font-size: 2.2rem; opacity: 0.8; margin-bottom: 0; }
-.float-anim { font-size: 5rem; opacity: 0.15; animation: slow-float 6s ease-in-out infinite; }
+.mega-icon  { font-size: 3.5rem; opacity: 0.9; margin-bottom: 16px; }
+.mini-icon  { font-size: 2rem; opacity: 0.8; margin-bottom: 0; }
+.float-anim { font-size: 4.5rem; opacity: 0.12; animation: slow-float 6s ease-in-out infinite; }
 
-.text-cyan { color: var(--accent-primary); }
-.text-purple { color: #8a2be2; }
-.text-white { color: #fff; }
+.bento-box:hover .bento-icon { opacity: 1; transform: scale(1.05); }
 
-.bento-box:hover .bento-icon {
-  opacity: 1;
-  transform: scale(1.05);
-}
+.text-cyan   { color: var(--accent-primary); }
+.text-purple { color: var(--accent-secondary); }
+.text-white  { color: #fff; }
 
+/* Titles */
 .bento-title {
-  font-size: 1.8rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   letter-spacing: -0.5px;
   line-height: 1.2;
 }
 
 .big-title {
-  font-size: 3.5rem;
-  font-weight: 300;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
   letter-spacing: -2px;
+  margin-bottom: 18px;
 }
 
+/* Descriptions */
 .bento-desc {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.6;
-  margin-bottom: 30px;
-  font-weight: 300;
-}
-
-.small-desc {
   font-size: 1rem;
-  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  font-weight: 400;
 }
 
+.small-desc { font-size: 0.9rem; margin-bottom: 20px; }
+
+/* Tech Pills */
 .bento-tech-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
-.wrap-right {
-  justify-content: flex-end;
-}
+.wrap-right { justify-content: flex-end; }
 
 .bento-tech {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 14px;
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 5px 12px;
   border-radius: 6px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   border: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
 .bento-box:hover .bento-tech {
   background: rgba(0, 240, 255, 0.05);
-  border-color: rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.18);
   color: #fff;
 }
 
-/* Horizontal Layout for the wide panoramic Web3 box */
+/* Wide panoramic layout (Web3 box) */
 .row-layout {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.bento-text-side {
-  width: 60%;
-}
-
+.bento-text-side  { width: 60%; }
 .bento-visual-side {
   width: 35%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
 }
 
 @keyframes slow-float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0%   { transform: translateY(0px)   rotate(0deg); }
+  50%  { transform: translateY(-14px) rotate(5deg); }
+  100% { transform: translateY(0px)   rotate(0deg); }
 }
 
-/* --------------------------------------
-   RESPONSIVE DESIGN SCALING
---------------------------------------- */
+/* -------- RESPONSIVE -------- */
 @media screen and (max-width: 1200px) {
-  .master-bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .master-bento-grid { grid-template-columns: repeat(2, 1fr); }
   .box-web { grid-column: span 2; grid-row: span 2; }
-  .box-mobile { grid-column: span 1; grid-row: span 1; }
-  .box-seo { grid-column: span 1; grid-row: span 1; }
-  .box-web3 { grid-column: span 2; grid-row: span 1; }
-  
+
   .row-layout { flex-direction: column; align-items: flex-start; }
-  .bento-text-side { width: 100%; margin-bottom: 30px; }
-  .bento-visual-side { width: 100%; align-items: flex-start; }
-  .wrap-right { justify-content: flex-start; }
+  .bento-text-side  { width: 100%; margin-bottom: 24px; }
+  .bento-visual-side{ width: 100%; align-items: flex-start; }
+  .wrap-right       { justify-content: flex-start; }
 }
 
 @media screen and (max-width: 768px) {
   .master-bento-grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(300px, auto); /* Allows height to breathe on mobile */
+    grid-auto-rows: minmax(260px, auto);
   }
+
   .box-web, .box-mobile, .box-seo, .box-web3 {
     grid-column: span 1;
     grid-row: span 1;
   }
-  
-  .big-title { font-size: 2.5rem; }
-  .bento-content { padding: 30px; }
+
+  .big-title { font-size: 2.2rem; letter-spacing: -1.5px; }
+  .bento-content { padding: 28px 24px; }
 }

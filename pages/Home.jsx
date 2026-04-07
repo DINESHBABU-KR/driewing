@@ -17,7 +17,7 @@ const Home = () => {
     <Container className="py-5">
       <Row className="align-items-center">
         <Col md={6}>
-          <h1 className="display-3">Hi, I'm Dinesh Babu!</h1>
+          <h1 className="display-3">We are a Full-Service Freelance Team</h1>
           <p className="lead">
             Full Stack Developer specializing in MERN & Web3 Technologies.
           </p>

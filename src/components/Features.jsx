@@ -1,21 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaLaptopCode, FaMobileAlt, FaLink, FaChartLine } from 'react-icons/fa';
-import './Features.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { FaLaptopCode, FaMobileAlt, FaLink, FaChartLine } from "react-icons/fa";
+import "./Features.css";
 
 const Features = () => {
   return (
     <section id="services" className="services-bento-section">
-      <div className="container" style={{ maxWidth: '1400px' }}>
-        <div className="portfolio-header" style={{ marginBottom: '40px' }}>
+      <div className="container">
+        <div className="portfolio-header">
           <div>
-            <h2 className="card-title">Our Services<span className="period">.</span></h2>
-            <p className="portfolio-subtitle">We turn complex ideas into clean, scalable digital products across Web, Mobile, and Web3.</p>
+            <h2 className="card-title">
+              Our Services<span className="period">.</span>
+            </h2>
+            <p className="portfolio-subtitle">
+              We turn complex ideas into clean, scalable digital products across
+              Web, Mobile, and Web3.
+            </p>
           </div>
         </div>
 
         <div className="master-bento-grid">
-
           {/* Box 1: Web Engineering (Massive Hero Box) */}
           <motion.div
             className="bento-box box-web"
@@ -30,13 +34,20 @@ const Features = () => {
               <div>
                 <span className="bento-id">01</span>
                 <h3 className="bento-title big-title">Web Platforms & SaaS</h3>
-                <p className="bento-desc">We build fast, scalable web apps and SaaS dashboards — clean in design, solid in architecture, and ready to grow with your business.</p>
+                <p className="bento-desc">
+                  We build fast, scalable web apps and SaaS dashboards — clean
+                  in design, solid in architecture, and ready to grow with your
+                  business.
+                </p>
 
                 <div className="bento-tech-list">
                   <span className="bento-tech">React</span>
                   <span className="bento-tech">Next.js</span>
                   <span className="bento-tech">Node.js</span>
+                  <span className="bento-tech">PHP</span>
+                  <span className="bento-tech">Laravel</span>
                   <span className="bento-tech">MongoDB</span>
+                  <span className="bento-tech">Mysql</span>
                 </div>
               </div>
             </div>
@@ -58,7 +69,10 @@ const Features = () => {
               </div>
               <div>
                 <h3 className="bento-title">Mobile Apps</h3>
-                <p className="bento-desc small-desc">Native iOS & Android apps built for real users — fast, offline-ready, and designed to keep people coming back.</p>
+                <p className="bento-desc small-desc">
+                  Native iOS & Android apps built for real users — fast,
+                  offline-ready, and designed to keep people coming back.
+                </p>
                 <div className="bento-tech-list">
                   <span className="bento-tech">React Native</span>
                   <span className="bento-tech">Flutter</span>
@@ -84,7 +98,11 @@ const Features = () => {
               </div>
               <div>
                 <h3 className="bento-title">Growth & SEO</h3>
-                <p className="bento-desc small-desc">We handle technical SEO so your product gets found — faster indexing, cleaner architecture, and more organic traffic over time.</p>
+                <p className="bento-desc small-desc">
+                  We handle technical SEO so your product gets found — faster
+                  indexing, cleaner architecture, and more organic traffic over
+                  time.
+                </p>
                 <div className="bento-tech-list">
                   <span className="bento-tech">Analytics</span>
                   <span className="bento-tech">Technical SEO</span>
@@ -108,7 +126,11 @@ const Features = () => {
               <div className="bento-text-side">
                 <span className="bento-id">04</span>
                 <h3 className="bento-title big-title">Blockchain & Web3</h3>
-                <p className="bento-desc">We build audited smart contracts, DeFi platforms, and Web3 products across EVM and Solana ecosystems — secure, gas-optimized, and production-ready.</p>
+                <p className="bento-desc">
+                  We build audited smart contracts, DeFi platforms, and Web3
+                  products across EVM and Solana ecosystems — secure,
+                  gas-optimized, and production-ready.
+                </p>
               </div>
 
               <div className="bento-visual-side">
@@ -122,7 +144,6 @@ const Features = () => {
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

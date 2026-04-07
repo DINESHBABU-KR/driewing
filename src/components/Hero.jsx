@@ -8,6 +8,8 @@ import {
   SiMongodb,
   SiSpringboot,
   SiMysql,
+  SiPhp,
+  SiLaravel,
   SiFirebase,
   SiSupabase,
 } from "react-icons/si";
@@ -15,6 +17,7 @@ import logoBrand from "../assets/brand_logo.png";
 import heroImg from "../assets/hero-agency.png";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
+import { PopupModal } from "react-calendly";
 import "./Hero.css";
 
 const TechLogos = () => (
@@ -44,6 +47,14 @@ const TechLogos = () => (
       <span>MySQL</span>
     </div>
     <div className="slide">
+      <SiPhp size={30} color="#777BB4" />
+      <span>PHP</span>
+    </div>
+    <div className="slide">
+      <SiLaravel size={30} color="#FF2D20" />
+      <span>Laravel</span>
+    </div>
+    <div className="slide">
       <SiFirebase size={30} color="#FFCA28" />
       <span>Firebase</span>
     </div>
@@ -56,6 +67,7 @@ const TechLogos = () => (
 
 const Hero = () => {
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+  const [isCalendlyOpen, setIsCalendlyOpen] = React.useState(false);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -78,12 +90,22 @@ const Hero = () => {
       <motion.div
         className="floating-shape shape-2"
         animate={{ y: [0, 25, 0], x: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       />
       <motion.div
         className="floating-shape shape-3"
         animate={{ y: [0, -15, 0], x: [0, 20, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
       />
 
       <div
@@ -94,7 +116,6 @@ const Hero = () => {
       ></div>
       <div className="container hero-container">
         <div className="hero-text-side">
-
           <div className="hero-title-container">
             <h1 className="hero-title">
               Driewing <span className="highlight">Technologies</span>
@@ -107,7 +128,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Turning ideas into scalable digital products.<br/>
+            Turning ideas into scalable digital products.
+            <br />
             <strong>Web • Mobile • Blockchain • SEO</strong>
           </motion.p>
 
@@ -130,17 +152,14 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={200}
-            >
-              <Magnetic strength={0.3}>
-                <button className="btn-primary">Book a Call</button>
-              </Magnetic>
-            </Link>
+            <Magnetic strength={0.3}>
+              <button
+                className="btn-primary"
+                onClick={() => setIsCalendlyOpen(true)}
+              >
+                Book a Call
+              </button>
+            </Magnetic>
           </motion.div>
         </div>
 
@@ -152,7 +171,11 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
           >
             <div className="image-glow"></div>
-            <img src={heroImg} alt="Agency Innovation" className="hero-main-img" />
+            <img
+              src={heroImg}
+              alt="Agency Innovation"
+              className="hero-main-img"
+            />
 
             {/* Decorative Elements */}
             <motion.div
@@ -165,7 +188,12 @@ const Hero = () => {
             <motion.div
               className="tech-badge node"
               animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
             >
               <SiNodedotjs color="#339933" />
             </motion.div>
@@ -183,6 +211,13 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <PopupModal
+        url="https://calendly.com/driewingtech"
+        onModalClose={() => setIsCalendlyOpen(false)}
+        open={isCalendlyOpen}
+        rootElement={document.getElementById("root")}
+      />
     </section>
   );
 };

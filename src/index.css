@@ -1,29 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
-  /* Colors - Restored Dark Theme */
-  --bg-color: #0b0f19;
-  --bg-color-alt: #151b2b;
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
-  --accent-primary: #00f0ff;
+  /* Colors */
+  --bg-color:        #0b0f19;
+  --bg-color-alt:    #111827;
+  --text-primary:    #ffffff;
+  --text-secondary:  #9ca3af;
+  --accent-primary:  #00f0ff;
   --accent-secondary: #8a2be2;
-  
+  --green-status:    #00ff88;
+
   /* Typography */
-  --font-main: 'Inter', sans-serif;
-  
-  /* Borders and Shadows */
+  --font-main:    'Inter', 'Outfit', sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --section-padding-lg: 120px;
+  --section-padding-md: 80px;
+  --section-padding-sm: 60px;
+
+  /* Borders & Radii */
+  --border-radius-xl: 40px;
   --border-radius-lg: 32px;
   --border-radius-md: 24px;
   --border-radius-sm: 16px;
-  --pill-radius: 999px;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 10px 30px rgba(0, 240, 255, 0.15);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --pill-radius:      999px;
+
+  /* Shadows */
+  --shadow-soft:  0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 10px 30px rgba(0, 240, 255, 0.12);
+  --shadow-card:  0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  /* Borders */
+  --border-default: 1px solid rgba(255, 255, 255, 0.07);
+  --border-accent:  1px solid rgba(0, 240, 255, 0.25);
 }
 
-/* Reset */
-* {
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -34,164 +53,222 @@ html {
 }
 
 body {
-  margin: 0;
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-main);
+  font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   color: var(--text-primary);
   line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.heading-bold {
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .heading-bold {
-    font-size: 2.5rem;
-  }
-}
-
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 ul {
   list-style: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
 .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.section-wrapper {
-  padding: 40px 0;
+@media (max-width: 600px) {
+  .container { padding: 0 1.25rem; }
 }
 
-/* Base Card Container styling */
+.section-wrapper {
+  padding: var(--section-padding-lg) 0;
+}
+
+/* ============================================================
+   SHARED SECTION HEADERS
+   Used across: Explore, Features, Testimonials, About
+   ============================================================ */
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 24px;
+  margin-bottom: 48px;
+}
+
+.portfolio-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 8px;
+  max-width: 480px;
+}
+
+.period {
+  color: var(--accent-primary);
+}
+
+/* ============================================================
+   CARD CONTAINER (used by About section)
+   ============================================================ */
 .card-container {
   background: var(--bg-color-alt);
   border-radius: var(--border-radius-lg);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-card);
   padding: 60px;
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Sophisticated glass border */
-  margin-bottom: 20px;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  border: var(--border-default);
+  margin-bottom: 0;
+  transition: box-shadow 0.4s ease;
 }
 
 .card-container:hover {
-  box-shadow: 0 20px 60px rgba(0, 240, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 240, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+  .card-container { padding: 32px 20px; border-radius: var(--border-radius-md); }
 }
 
 .card-title {
-  font-size: 3rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  margin-bottom: 40px;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
+  margin-bottom: 0;
+  line-height: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .card-container {
-    padding: 30px 20px;
-    border-radius: var(--border-radius-md);
-  }
-  .card-title {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-  }
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1;
 }
 
-/* Buttons */
+.heading-lg {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+/* Primary CTA — gradient shimmer pill */
 .btn-primary {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 14px 36px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   background-size: 200% auto;
   color: #fff;
+  font-family: var(--font-main);
   font-weight: 700;
+  font-size: 1rem;
   border-radius: var(--pill-radius);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.05rem;
-  z-index: 1;
-  animation: shine 3s linear infinite;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25);
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .btn-primary::before {
   content: '';
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+  inset: -2px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
   background-size: 200% auto;
   z-index: -1;
   border-radius: var(--pill-radius);
   filter: blur(12px);
-  opacity: 0.5;
+  opacity: 0;
   transition: opacity 0.3s ease;
   animation: shine 3s linear infinite;
 }
 
-.btn-primary:hover::before {
-  opacity: 1;
-}
-
 .btn-primary:hover {
-  transform: translateY(-2px);
-  color: #fff;
-  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(138, 43, 226, 0.45);
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+.btn-primary:hover::before {
+  opacity: 0.7;
 }
 
-.btn-accent {
+/* Secondary ghost button */
+.btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 36px;
-  background: var(--accent-primary);
-  color: var(--bg-color);
+  padding: 12px 30px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-main);
   font-weight: 600;
-  border-radius: var(--border-radius-lg);
-  border: none;
+  font-size: 1rem;
+  border-radius: var(--pill-radius);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 1.05rem;
 }
 
-.btn-accent:hover {
-  background: #00c3cc; /* Darker cyan */
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+.btn-ghost:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(0, 240, 255, 0.05);
 }
 
-/* Drifting Globs */
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
 @keyframes driftGlow {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 40px) scale(0.95); }
-  100% { transform: translate(0, 0) scale(1); }
+  0%   { transform: translate(0, 0)      scale(1);    opacity: 0.2; }
+  33%  { transform: translate(30px, -50px) scale(1.1); opacity: 0.4; }
+  66%  { transform: translate(-20px, 40px) scale(0.95); opacity: 0.3; }
+  100% { transform: translate(0, 0)      scale(1);    opacity: 0.2; }
 }

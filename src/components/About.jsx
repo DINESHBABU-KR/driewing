@@ -39,7 +39,7 @@ const About = () => {
             >
               <h3 className="manifesto-heading">Small Team. Serious Work.</h3>
               <p className="manifesto-p">
-                Driewing Technologies We're a lean engineering team building digital products across Web, Mobile, and Blockchain. No bloated teams, no outsourcing — just focused people who care deeply about what they ship.
+                We're a lean engineering team building digital products across Web, Mobile, and Blockchain. No bloated teams, no outsourcing — just focused people who care deeply about what they ship.
               </p>
               <p className="manifesto-p">
                 We work closely with startup founders and product teams to turn complex ideas into clean, scalable products — from first wireframe to final deployment.

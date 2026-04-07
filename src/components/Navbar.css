@@ -1,136 +1,137 @@
+/* ============================================================
+   NAVBAR
+   ============================================================ */
 .navbar-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 30px;
+  padding: 28px;
   display: flex;
   justify-content: center;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
 }
 
-.navbar-wrapper.hidden {
-  transform: translateY(-100%);
-}
+.navbar-wrapper.hidden  { transform: translateY(-110%); }
+.navbar-wrapper.scrolled{ padding: 14px; }
 
-.navbar-wrapper.scrolled {
-  padding: 15px;
-}
-
+/* The pill container */
 .navbar {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  height: 70px;
-  background: rgba(21, 27, 43, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  height: 66px;
+  background: rgba(17, 24, 39, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--accent-primary);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.1);
   border-radius: var(--pill-radius);
-  padding: 0 30px;
+  padding: 0 28px;
   transition: all 0.3s ease;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   cursor: pointer;
   z-index: 2;
-  margin-right: 60px; /* Gives a perfect gap between logo and menu */
-}
-
-.logo svg {
-  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+  margin-right: 48px;
+  flex-shrink: 0;
 }
 
 .logo-img {
-  height: 50px;
+  height: 44px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-.logo:hover .logo-img {
-  transform: scale(1.05);
+.logo:hover .logo-img { transform: scale(1.05); }
+
+.logo-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
 }
 
-
+/* Nav Menu */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-right: auto; /* Pushes the CTA to the far right */
+  gap: 4px;
+  margin-right: auto;
 }
 
 .nav-item {
-  font-size: 0.95rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   color: var(--text-secondary);
-  transition: all 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .nav-item a {
-  padding: 8px 16px;
+  padding: 7px 14px;
   border-radius: var(--pill-radius);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   color: inherit;
+  display: block;
 }
 
 .nav-item a:hover,
 .nav-item a.active {
-  color: var(--bg-color-alt);
+  color: var(--bg-color);
   background-color: var(--accent-primary);
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
 }
 
+/* Hamburger */
 .menu-icon {
   display: none;
   cursor: pointer;
+  padding: 4px;
 }
 
+/* -------- MOBILE -------- */
 @media screen and (max-width: 900px) {
   .menu-icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
   }
 
-  .hide-mobile {
-    display: none;
-  }
+  .hide-mobile,
+  .nav-cta { display: none !important; }
 
   .nav-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     position: absolute;
-    top: 90px;
+    top: calc(100% + 12px);
     right: 20px;
     left: auto;
-    margin-right: 0;
-    width: 250px;
-    background: #0b0f19;
+    flex-direction: column;
+    width: 240px;
+    background: rgba(11, 15, 25, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-hover);
-    border: 1px solid var(--border-color);
-    padding: 20px;
+    border: var(--border-default);
+    padding: 16px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     transition: all 0.3s ease;
     z-index: 100;
-  }
-
-  .nav-cta, .hide-mobile {
-    display: none;
-  }
-  
-  .menu-icon {
-    margin-left: auto;
+    margin-right: 0;
+    gap: 4px;
   }
 
   .nav-menu.active {
@@ -140,9 +141,11 @@
   }
 
   .nav-item {
-    margin: 10px 0;
-    font-size: 1.1rem;
     width: 100%;
+    font-size: 1rem;
     text-align: center;
+    margin: 2px 0;
   }
+
+  .nav-item a { width: 100%; text-align: center; }
 }
