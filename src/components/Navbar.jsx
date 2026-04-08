@@ -56,7 +56,12 @@ const Navbar = () => {
             offset={-100}
             duration={200}
             onClick={closeMenu}
-            style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              textDecoration: "none",
+            }}
           >
             <img src={logoBrand} alt="Driewing Logo" className="logo-img" />
             <span className="logo-wordmark">Driewing</span>
@@ -87,10 +92,11 @@ const Navbar = () => {
           }}
         >
           {[
-            { to: "services", label: "Services" },
             { to: "portfolio", label: "Work" },
+            { to: "testimonials", label: "Proof" },
+            { to: "services", label: "Services" },
             { to: "about", label: "About" },
-            // { to: "team", label: "Team" },
+            { to: "contact", label: "Contact" },
           ].map((item, index) => (
             <motion.li
               key={index}

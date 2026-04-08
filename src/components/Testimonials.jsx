@@ -1,134 +1,187 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCheckCircle,
+  FaQuoteLeft,
+  FaStar,
+} from "react-icons/fa";
 import "./Testimonials.css";
 
-const reviewsData = [
+const testimonials = [
   {
     name: "Saravanan",
-    role: "Owner of Priyam Digital Studio",
+    role: "Owner, Priyam Digital Studio",
+    company: "Photography Studio Platform",
     content:
       "Working with this team completely elevated our digital presence. From branding to website design, every detail was crafted with creativity and precision. The modern UI, smooth animations, and performance-focused development truly set our studio apart.",
-    rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
   },
-  // {
-  //   name: 'Michael Chen',
-  //   role: 'Founder, Elevate Fitness',
-  //   content: 'We saw a 40% increase in conversion rate within the first month. The new architecture is blazing fast and the sleek design perfectly matches our brand identity.',
-  //   rating: 5,
-  //   avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80'
-  // },
-  // {
-  //   name: 'Emma Rossi',
-  //   role: 'Marketing Director, Lumiere',
-  //   content: 'Communication was flawless throughout the entire process. They took our vague ideas and turned them into a stunning, high-performing digital experience.',
-  //   rating: 5,
-  //   avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80'
-  // },
-  // {
-  //   name: 'Liam O’Brien',
-  //   role: 'Founder, Nexus Labs',
-  //   content: 'Driewing Technologies delivered a Web3 product that was secure, audited, and incredibly intuitive for our users. Their understanding of the Solana ecosystem is unparalleled.',
-  //   rating: 5,
-  //   avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80'
-  // },
-  // {
-  //   name: 'Sophia Wright',
-  //   role: 'Product Lead, Velocity',
-  //   content: 'The team at Driewing is incredibly talented. They helped us scale our MVP to 50k users without a hitch. Their engineering standards are world-class.',
-  //   rating: 5,
-  //   avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80'
-  // },
-  // {
-  //   name: 'David Kim',
-  //   role: 'CTO, Quantum AI',
-  //   content: 'Brilliant execution. The integration of our AI models into the frontend was seamless and the performance gains from their optimization were significant.',
-  //   rating: 5,
-  //   avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
-  // }
+  {
+    name: "Michael Chen",
+    role: "Founder, Elevate Fitness",
+    company: "Growth-focused Product Website",
+    content:
+      "The team moved fast, communicated clearly, and delivered a polished product that felt far more premium than our previous site. The new experience gave us stronger positioning and a much better first impression with customers.",
+  },
+  {
+    name: "Emma Rossi",
+    role: "Marketing Director, Lumiere",
+    company: "Brand and Conversion Refresh",
+    content:
+      "They took scattered ideas and turned them into a cohesive digital experience. The design quality, responsiveness, and calm delivery process made the entire project feel organized from start to finish.",
+  },
+  {
+    name: "Liam O'Brien",
+    role: "Founder, Nexus Labs",
+    company: "Product Launch Build",
+    content:
+      "What stood out most was the balance between visual polish and technical clarity. The site felt custom, fast, and launch-ready, and the collaboration never felt heavy or overcomplicated.",
+  },
 ];
 
-const ReviewCard = ({ review }) => (
-  <div className="review-marquee-card">
-    <div className="quote-icon">
-      <FaQuoteLeft />
-    </div>
-    <div className="review-top">
-      <div className="stars">
-        {[...Array(review.rating)].map((_, index) => (
-          <FaStar key={index} className="star-icon" />
-        ))}
-      </div>
-    </div>
-    <p className="review-content">"{review.content}"</p>
-    <div className="review-author">
-      {/* <img src={review.avatar} alt={review.name} className="author-avatar" /> */}
-      <div className="author-info">
-        <h4>{review.name}</h4>
-        <span>{review.role}</span>
-      </div>
-    </div>
-  </div>
-);
+const trustPoints = [
+  "Clear communication from kickoff to launch, so clients always know what is happening and what comes next.",
+  "Fast iterations with premium execution, helping ideas move forward without losing quality or trust.",
+  "Design and development aligned in one flow, creating a smoother process and a stronger final product.",
+];
 
 const Testimonials = () => {
-  const row1 = [
-    ...reviewsData.slice(0, 3),
-    ...reviewsData.slice(0, 3),
-    ...reviewsData.slice(0, 3),
-  ];
-  const row2 = [
-    ...reviewsData.slice(3, 6),
-    ...reviewsData.slice(3, 6),
-    ...reviewsData.slice(3, 6),
-  ];
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const goToSlide = (index) => setActiveIndex(index);
+  const goPrev = () =>
+    setActiveIndex((current) =>
+      current === 0 ? testimonials.length - 1 : current - 1,
+    );
+  const goNext = () =>
+    setActiveIndex((current) => (current + 1) % testimonials.length);
 
   return (
-    <section id="testimonials" className="testimonials-marquee-section">
+    <section id="testimonials" className="testimonials-carousel-section">
       <div className="testimonials-bg-glow"></div>
 
       <div className="container">
-        <div className="portfolio-header center-text">
-          <motion.h2
-            className="card-title"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Client Success Stories<span className="period">.</span>
-          </motion.h2>
-          <motion.p
-            className="portfolio-subtitle"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Trusted by founders and product teams globally. Join 50+ partners
-            who chose excellence.
-          </motion.p>
-        </div>
-      </div>
-
-      <div className="marquee-container">
-        {/* Row 1 - Left to Right */}
-        <div className="marquee-wrapper">
-          <div className="marquee-track-horizontal track-row-1">
-            {row1.map((review, i) => (
-              <ReviewCard key={`row1-${i}`} review={review} />
-            ))}
+        <div className="portfolio-header">
+          <div>
+            <motion.h2
+              className="card-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Client Confidence<span className="period">.</span>
+            </motion.h2>
+            <motion.p
+              className="portfolio-subtitle testimonial-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Strong client feedback does more than decorate a portfolio. It
+              shows prospects that the work feels organized, premium, and worth
+              trusting.
+            </motion.p>
           </div>
         </div>
 
-        {/* Row 2 - Right to Left */}
-        <div className="marquee-wrapper">
-          <div className="marquee-track-horizontal track-row-2">
-            {row2.map((review, i) => (
-              <ReviewCard key={`row2-${i}`} review={review} />
-            ))}
+        <div className="testimonial-shell">
+          <div className="testimonial-carousel-card">
+            <div className="testimonial-carousel-top">
+              <span className="testimonial-badge">Client Testimonials</span>
+              <div className="testimonial-controls">
+                <button
+                  type="button"
+                  className="testimonial-nav-btn"
+                  onClick={goPrev}
+                  aria-label="Previous testimonial"
+                >
+                  <FaArrowLeft />
+                </button>
+                <button
+                  type="button"
+                  className="testimonial-nav-btn"
+                  onClick={goNext}
+                  aria-label="Next testimonial"
+                >
+                  <FaArrowRight />
+                </button>
+              </div>
+            </div>
+
+            <div className="testimonial-viewport">
+              <motion.div
+                className="testimonial-track"
+                animate={{ x: `-${activeIndex * 100}%` }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {testimonials.map((item) => (
+                  <article
+                    key={`${item.name}-${item.company}`}
+                    className="testimonial-slide"
+                  >
+                    <div className="testimonial-quote-mark">
+                      <FaQuoteLeft />
+                    </div>
+                    <div className="testimonial-stars">
+                      {[...Array(5)].map((_, index) => (
+                        <FaStar key={index} className="star-icon" />
+                      ))}
+                    </div>
+                    <p className="testimonial-copy">"{item.content}"</p>
+                    <div className="testimonial-meta">
+                      <div className="testimonial-author">
+                        <h3>{item.name}</h3>
+                        <span>{item.role}</span>
+                      </div>
+                      <div className="testimonial-company">{item.company}</div>
+                    </div>
+                  </article>
+                ))}
+              </motion.div>
+            </div>
+
+            <div className="testimonial-pagination">
+              {testimonials.map((item, index) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  className={`testimonial-dot${index === activeIndex ? " active" : ""}`}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="testimonial-side-panel">
+            <span className="panel-kicker">Why clients choose us</span>
+            <h3>We make delivery feel clear, fast, and reassuring from day one.</h3>
+            <div className="trust-points-list">
+              {trustPoints.map((point) => (
+                <div key={point} className="trust-point-item">
+                  <FaCheckCircle />
+                  <span>{point}</span>
+                </div>
+              ))}
+            </div>
+            <div className="testimonial-side-footer">
+              <strong>More than a beautiful final result</strong>
+              <span>
+                Clients remember the calm process, fast communication, and the
+                confidence that their project is in good hands.
+              </span>
+            </div>
           </div>
         </div>
       </div>

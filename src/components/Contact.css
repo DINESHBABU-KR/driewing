@@ -101,6 +101,32 @@
   margin-top: 8px;
 }
 
+.contact-expectations {
+  display: grid;
+  gap: 14px;
+}
+
+.expectation-card {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.expectation-card strong {
+  color: #fff;
+  font-size: 0.92rem;
+}
+
+.expectation-card span {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .contact-detail-item {
   display: flex;
   flex-direction: column;

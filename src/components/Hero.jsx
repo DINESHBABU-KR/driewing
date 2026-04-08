@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import {
+  SiAndroid,
+  SiApple,
   SiReact,
   SiNodedotjs,
   SiNextdotjs,
@@ -13,12 +15,22 @@ import {
   SiFirebase,
   SiSupabase,
 } from "react-icons/si";
-import logoBrand from "../assets/brand_logo.png";
 import heroImg from "../assets/hero-agency.png";
-import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import { PopupModal } from "react-calendly";
 import "./Hero.css";
+
+const heroStats = [
+  { value: "10+", label: "projects shipped" },
+  { value: "Web + Mobile", label: "product execution" },
+  { value: "24h", label: "average response time" },
+];
+
+const engagementPoints = [
+  "Discovery and product strategy",
+  "UI/UX design that supports conversion",
+  "Fast engineering and launch support",
+];
 
 const TechLogos = () => (
   <>
@@ -128,9 +140,18 @@ const Hero = () => {
       ></div>
       <div className="container hero-container">
         <div className="hero-text-side">
+          {/* <motion.span
+            className="hero-eyebrow"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Web and mobile app development agency
+          </motion.span> */}
           <div className="hero-title-container">
             <h1 className="hero-title">
-              Driewing <span className="highlight">Technologies</span>
+              Design, build, and launch digital products clients remember.
+              <span className="highlight"> Driewing Technologies</span>
             </h1>
           </div>
 
@@ -140,9 +161,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Turning ideas into scalable digital products.
-            <br />
-            <strong>Web • Mobile • Blockchain • SEO</strong>
+            We help startups, studios, and growing businesses turn rough ideas
+            into polished web platforms and mobile apps that look premium,
+            perform fast, and move people to act.
           </motion.p>
 
           <motion.div
@@ -151,11 +172,11 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <span className="service-tag">Web Apps</span>
+            <span className="service-tag">SaaS Platforms</span>
             <span className="service-tag">Mobile Apps</span>
-            <span className="service-tag">Cloud Architecture</span>
-            <span className="service-tag">UI/UX Design</span>
-            <span className="service-tag">SEO Strategy</span>
+            <span className="service-tag">Conversion-focused Websites</span>
+            <span className="service-tag">UI/UX Systems</span>
+            <span className="service-tag">Launch Support</span>
           </motion.div>
 
           <motion.div
@@ -172,7 +193,38 @@ const Hero = () => {
                 Book a Call
               </button>
             </Magnetic>
+            <Link to="portfolio" spy smooth offset={-100} duration={250}>
+              <button className="btn-ghost">See Case Study</button>
+            </Link>
           </motion.div>
+
+          {/* <motion.div
+            className="hero-proof-strip"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+          >
+            <div className="hero-proof-copy">
+              <p className="hero-proof-title">
+                Founder-friendly delivery from strategy to launch
+              </p>
+              <div className="hero-proof-list">
+                {engagementPoints.map((point) => (
+                  <span key={point} className="hero-proof-item">
+                    {point}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="hero-stats-grid">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="hero-stat-card">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div> */}
         </div>
 
         <div className="hero-image-side">
@@ -208,6 +260,27 @@ const Hero = () => {
               }}
             >
               <SiNodedotjs color="#339933" />
+            </motion.div>
+            <motion.div
+              className="floating-insight insight-top"
+              initial={{ opacity: 0, x: 18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9, duration: 0.7 }}
+            >
+              <span>Client-ready UX</span>
+              <strong>Web + Mobile</strong>
+            </motion.div>
+            <motion.div
+              className="floating-insight insight-bottom"
+              initial={{ opacity: 0, x: -18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.1, duration: 0.7 }}
+            >
+              <div className="platform-icons">
+                <SiApple />
+                <SiAndroid />
+              </div>
+              <span>Built to scale from first release</span>
             </motion.div>
           </motion.div>
         </div>

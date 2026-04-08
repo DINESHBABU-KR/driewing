@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
-import logoBrand from "../assets/gw_logo.png";
 import Magnetic from "./Magnetic";
 import "./Contact.css";
 
@@ -84,8 +82,9 @@ const Contact = () => {
               </h2>
 
               <p className="dashboard-desc">
-                Tell us what you're working on — we'll figure out the best way
-                to bring it to life.
+                Share the product idea, current pain point, or growth goal. We
+                will reply with the clearest next step, whether you need a new
+                site, a mobile app, or a complete product partner.
               </p>
 
               <div className="contact-details-row">
@@ -96,6 +95,21 @@ const Contact = () => {
                 <div className="contact-detail-item">
                   <span className="detail-label">Inquiries</span>
                   <span className="detail-value">driewingtech@gmail.com</span>
+                </div>
+              </div>
+
+              <div className="contact-expectations">
+                <div className="expectation-card">
+                  <strong>Best fit</strong>
+                  <span>Startups, service businesses, creators, and product teams.</span>
+                </div>
+                <div className="expectation-card">
+                  <strong>What to send</strong>
+                  <span>Your goal, timeline, rough scope, and any references you like.</span>
+                </div>
+                <div className="expectation-card">
+                  <strong>What happens next</strong>
+                  <span>We review, reply, and suggest the fastest path to a good launch.</span>
                 </div>
               </div>
             </div>
