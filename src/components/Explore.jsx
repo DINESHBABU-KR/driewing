@@ -109,16 +109,12 @@ const Explore = () => {
         <div className="portfolio-header">
           <div>
             <h2 className="card-title">
-              Selected Work<span className="period">.</span>
+              Explore Our Works<span className="period">.</span>
             </h2>
             <p className="portfolio-subtitle">
               A stronger way to present what we do: strategy, execution, and
               outcomes in one focused case-study carousel.
             </p>
-          </div>
-          <div className="carousel-instructions">
-            <span>Project Carousel</span>
-            <FaInfoCircle size={14} style={{ marginLeft: "6px" }} />
           </div>
         </div>
 

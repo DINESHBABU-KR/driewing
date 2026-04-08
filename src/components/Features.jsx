@@ -45,6 +45,8 @@ const Features = () => {
                   <span className="bento-tech">Next.js</span>
                   <span className="bento-tech">Node.js</span>
                   <span className="bento-tech">PHP</span>
+                  <span className="bento-tech">Java</span>
+                  <span className="bento-tech">SpringBoot</span>
                   <span className="bento-tech">Laravel</span>
                   <span className="bento-tech">MongoDB</span>
                   <span className="bento-tech">Mysql</span>

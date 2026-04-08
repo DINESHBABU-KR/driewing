@@ -1,6 +1,12 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Magnetic from "./Magnetic";
+import {
+  FaArrowRight,
+  FaEnvelopeOpenText,
+  FaGlobe,
+  FaRegClock,
+} from "react-icons/fa";
 import "./Contact.css";
 
 // ─────────────────────────────────────────────
@@ -24,6 +30,24 @@ const EMAILJS_PUBLIC_KEY = "7xZrt6fHRZWZZ7hDO"; // e.g. "A1B2C3D4E5F6G7H8"
 //  {{message}}       → project details
 //  {{reply_to}}      → auto reply-to email
 // ─────────────────────────────────────────────
+
+const contactHighlights = [
+  {
+    icon: <FaRegClock />,
+    label: "Reply rhythm",
+    value: "Within 24 hours",
+  },
+  {
+    icon: <FaGlobe />,
+    label: "Working style",
+    value: "Remote and founder-led",
+  },
+  {
+    icon: <FaEnvelopeOpenText />,
+    label: "Best first message",
+    value: "Goal, scope, timeline",
+  },
+];
 
 const Contact = () => {
   const formRef = useRef();
@@ -76,6 +100,8 @@ const Contact = () => {
                 </span>
               </div>
 
+              <span className="contact-kicker">Start the conversation</span>
+
               <h2 className="dashboard-title">
                 Let's Build Together. <br />
                 <span className="gradient-text">Got an idea?</span>
@@ -98,24 +124,30 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="contact-expectations">
-                <div className="expectation-card">
-                  <strong>Best fit</strong>
-                  <span>Startups, service businesses, creators, and product teams.</span>
-                </div>
-                <div className="expectation-card">
-                  <strong>What to send</strong>
-                  <span>Your goal, timeline, rough scope, and any references you like.</span>
-                </div>
-                <div className="expectation-card">
-                  <strong>What happens next</strong>
-                  <span>We review, reply, and suggest the fastest path to a good launch.</span>
-                </div>
+              <div className="contact-highlights-grid">
+                {contactHighlights.map((item) => (
+                  <div key={item.label} className="contact-highlight-card">
+                    <div className="contact-highlight-icon">{item.icon}</div>
+                    <div className="contact-highlight-copy">
+                      <span>{item.label}</span>
+                      <strong>{item.value}</strong>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Side: The Form */}
             <div className="contact-form-card">
+              <div className="contact-form-intro">
+                <span className="contact-form-badge">Project inquiry</span>
+                <h3>Tell us what you are building and where you feel stuck.</h3>
+                <p>
+                  A strong first message is enough. We can help shape the scope,
+                  priorities, and next move from there.
+                </p>
+              </div>
+
               <form ref={formRef} onSubmit={sendEmail} className="minimal-form">
                 <div className="form-row">
                   <div className="input-group">
@@ -186,7 +218,10 @@ const Contact = () => {
                     className="dashboard-send-btn"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Sending..." : "Launch Project Inquiry"}
+                    <span>
+                      {isLoading ? "Sending..." : "Launch Project Inquiry"}
+                    </span>
+                    {!isLoading && <FaArrowRight />}
                   </button>
                 </Magnetic>
 
