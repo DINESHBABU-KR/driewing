@@ -64,7 +64,7 @@ const ReviewCard = ({ review }) => (
     </div>
     <p className="review-content">"{review.content}"</p>
     <div className="review-author">
-      <img src={review.avatar} alt={review.name} className="author-avatar" />
+      {/* <img src={review.avatar} alt={review.name} className="author-avatar" /> */}
       <div className="author-info">
         <h4>{review.name}</h4>
         <span>{review.role}</span>
