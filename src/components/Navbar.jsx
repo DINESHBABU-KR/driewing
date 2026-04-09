@@ -12,35 +12,42 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const lastScrollYRef = React.useRef(0);
+  const frameRef = React.useRef(null);
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (frameRef.current) return;
 
-      if (currentScrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      frameRef.current = window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const nextScrolled = currentScrollY > 50;
+        const nextHidden =
+          currentScrollY > lastScrollYRef.current && currentScrollY > 200;
 
-      // Hide navbar when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        setHidden(true); // scrolling down
-        setClick(false); // close mobile menu if scrolling down
-      } else {
-        setHidden(false); // scrolling up
-      }
+        setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+        setHidden((prev) => (prev === nextHidden ? prev : nextHidden));
 
-      lastScrollY = currentScrollY;
+        if (nextHidden) {
+          setClick(false);
+        }
+
+        lastScrollYRef.current = currentScrollY;
+        frameRef.current = null;
+      });
     };
 
+    lastScrollYRef.current = window.scrollY;
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frameRef.current) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
+    };
   }, []);
 
   return (

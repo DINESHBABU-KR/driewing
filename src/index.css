@@ -52,6 +52,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image:
     radial-gradient(circle at top, rgba(0, 240, 255, 0.08), transparent 28%),
@@ -90,6 +94,16 @@ img {
   max-width: 100%;
 }
 
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+#hero {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
 /* ============================================================
    LAYOUT UTILITIES
    ============================================================ */
@@ -105,6 +119,59 @@ img {
 
 .section-wrapper {
   padding: var(--section-padding-lg) 0;
+}
+
+.section-skeleton {
+  padding: var(--section-padding-md) 0;
+}
+
+.section-skeleton-card {
+  min-height: 320px;
+  border-radius: var(--border-radius-lg);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+  background-size: 200% 100%;
+  border: var(--border-default);
+  animation: skeletonShift 1.4s linear infinite;
+}
+
+@keyframes skeletonShift {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  section {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+
+  .section-skeleton-card {
+    animation: none;
+  }
 }
 
 /* ============================================================

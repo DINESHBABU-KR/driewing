@@ -78,12 +78,34 @@ const TechLogos = () => (
 );
 
 const Hero = () => {
-  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [isCalendlyOpen, setIsCalendlyOpen] = React.useState(false);
+  const heroRef = React.useRef(null);
+  const blobRef = React.useRef(null);
+  const frameRef = React.useRef(null);
 
   const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    setMousePos({ x: clientX, y: clientY });
+    if (!heroRef.current || !blobRef.current) return;
+
+    const bounds = heroRef.current.getBoundingClientRect();
+    const nextX = e.clientX - bounds.left - 250;
+    const nextY = e.clientY - bounds.top - 250;
+
+    if (frameRef.current) {
+      window.cancelAnimationFrame(frameRef.current);
+    }
+
+    frameRef.current = window.requestAnimationFrame(() => {
+      blobRef.current?.style.setProperty(
+        "transform",
+        `translate3d(${nextX}px, ${nextY}px, 0)`,
+      );
+    });
+  };
+
+  const handleMouseLeave = () => {
+    if (frameRef.current) {
+      window.cancelAnimationFrame(frameRef.current);
+    }
   };
 
   React.useEffect(() => {
@@ -95,11 +117,20 @@ const Hero = () => {
 
     return () => {
       document.body.style.overflow = "auto";
+      if (frameRef.current) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
     };
   }, [isCalendlyOpen]);
 
   return (
-    <section id="hero" className="hero-section" onMouseMove={handleMouseMove}>
+    <section
+      id="hero"
+      ref={heroRef}
+      className="hero-section"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="hero-noise-overlay"></div>
       <div className="hero-glow-1"></div>
       <div className="hero-glow-2"></div>
@@ -133,10 +164,8 @@ const Hero = () => {
       />
 
       <div
+        ref={blobRef}
         className="hero-interactive-blob"
-        style={{
-          transform: `translate(${mousePos.x - 250}px, ${mousePos.y - 250}px)`,
-        }}
       ></div>
       <div className="container hero-container">
         <div className="hero-text-side">
@@ -239,6 +268,8 @@ const Hero = () => {
               src={heroImg}
               alt="Agency Innovation"
               className="hero-main-img"
+              fetchPriority="high"
+              decoding="async"
             />
 
             {/* Decorative Elements */}

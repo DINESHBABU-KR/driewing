@@ -170,6 +170,8 @@ const Explore = () => {
                       className="featured-case-image"
                       alt={project.title}
                       draggable="false"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="featured-case-badge">
                       <span>{project.eyebrow}</span>

@@ -93,6 +93,8 @@ const About = () => {
                   src={aboutImg}
                   alt="Driewing Agency"
                   className="about-main-img"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="about-img-overlay">
                   <div className="about-badge">Premium digital delivery</div>

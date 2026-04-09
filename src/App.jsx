@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Explore from "./components/Explore";
-import Testimonials from "./components/Testimonials";
-import About from "./components/About";
-import Team from "./components/Team";
-import Contact from "./components/Contact";
+const Explore = lazy(() => import("./components/Explore"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
+const Features = lazy(() => import("./components/Features"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+
+const SectionFallback = () => (
+  <div className="section-skeleton" aria-hidden="true">
+    <div className="container">
+      <div className="section-skeleton-card"></div>
+    </div>
+  </div>
+);
 
 function App() {
   return (
@@ -14,12 +21,13 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Explore />
-        <Testimonials />
-        <Features />
-        <About />
-        {/* <Team /> */}
-        <Contact />
+        <Suspense fallback={<SectionFallback />}>
+          <Explore />
+          <Testimonials />
+          <Features />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
     </>
   );
