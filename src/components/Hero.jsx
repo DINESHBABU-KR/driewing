@@ -4,7 +4,6 @@ import { Link } from "react-scroll";
 import {
   SiAndroid,
   SiApple,
-  SiJava,
   SiReact,
   SiNodedotjs,
   SiNextdotjs,
@@ -46,10 +45,6 @@ const TechLogos = () => (
     <div className="slide">
       <SiNextdotjs size={30} color="#fff" />
       <span>Next.js</span>
-    </div>
-    <div className="slide">
-      <SiJava size={30} color="#f89820" />
-      <span>Java</span>
     </div>
     <div className="slide">
       <SiMongodb size={30} color="#47A248" />
