@@ -7,6 +7,12 @@ import {
   FaGlobe,
   FaRegClock,
 } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaFacebook,
+} from "react-icons/fa6";
 import "./Contact.css";
 
 // ─────────────────────────────────────────────
@@ -36,16 +42,42 @@ const contactHighlights = [
     icon: <FaRegClock />,
     label: "Reply rhythm",
     value: "Within 24 hours",
+    // note: "Fast first response with a clear next step.",
   },
   {
     icon: <FaGlobe />,
     label: "Working style",
-    value: "Remote and founder-led",
+    value: "Remote",
+    // note: "Flexible across time zones and project stages.",
   },
   {
     icon: <FaEnvelopeOpenText />,
     label: "Best first message",
     value: "Goal, scope, timeline",
+    // note: "A few specifics help us guide the conversation faster.",
+  },
+];
+
+const footerSocialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/driewing-technologies",
+    icon: <FaLinkedinIn />,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/driewingtech",
+    icon: <FaInstagram />,
+  },
+  {
+    label: "FaceBook",
+    href: "https://www.facebook.com/share/1AmABpQcPs/",
+    icon: <FaFacebook />,
+  },
+  {
+    label: "Email",
+    href: "mailto:driewingtech@gmail.com",
+    icon: <FaEnvelope />,
   },
 ];
 
@@ -125,12 +157,15 @@ const Contact = () => {
               </div>
 
               <div className="contact-highlights-grid">
-                {contactHighlights.map((item) => (
+                {contactHighlights.map((item, index) => (
                   <div key={item.label} className="contact-highlight-card">
-                    <div className="contact-highlight-icon">{item.icon}</div>
+                    <div className="contact-highlight-top">
+                      <div className="contact-highlight-icon">{item.icon}</div>
+                    </div>
                     <div className="contact-highlight-copy">
                       <span>{item.label}</span>
                       <strong>{item.value}</strong>
+                      {/* <p>{item.note}</p> */}
                     </div>
                   </div>
                 ))}
@@ -251,6 +286,24 @@ const Contact = () => {
             </span>
           </div>
           <div className="footer-right">
+            <div className="footer-socials" aria-label="Social links">
+              {footerSocialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="footer-social-link"
+                  aria-label={item.label}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    item.href.startsWith("http")
+                      ? "noreferrer noopener"
+                      : undefined
+                  }
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
             <a href="#services">Capabilities</a>
             <a href="#portfolio">Work</a>
             <a href="#about">Story</a>
